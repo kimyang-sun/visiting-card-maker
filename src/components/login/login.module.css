@@ -1,0 +1,32 @@
+@value makerBlue, makerBlack, makerOrange from "../../common/colors.css";
+
+.container {
+  width: 475px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.login {
+  padding: 24px 15px 42px;
+  color: makerBlack;
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.list li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.list li button {
+  width: 100%;
+  padding: 10px 0;
+  background-color: makerOrange;
+  font-size: 1.25rem;
+  border-radius: 32px;
+}
+
+.list li button:hover {
+  background-color: gold;
+}

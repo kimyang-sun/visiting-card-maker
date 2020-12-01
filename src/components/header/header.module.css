@@ -1,0 +1,29 @@
+@value makerBlue, makerBlack from "../../common/colors.css";
+
+.header {
+  background-color: makerBlack;
+  padding: 24px 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: makerBlue;
+  position: relative;
+}
+
+.card {
+  margin-right: 15px;
+}
+
+.logout {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.logout:hover {
+  color: lightblue;
+}
