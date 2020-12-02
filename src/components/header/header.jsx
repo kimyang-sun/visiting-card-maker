@@ -9,7 +9,7 @@ const Header = ({ onLogout }) => {
         <FontAwesomeIcon icon="address-card" className={styles.card} />
         Visiting Card Maker
         {onLogout && (
-          <button className={styles.logout}>
+          <button onClick={onLogout} className={styles.logout}>
             <FontAwesomeIcon icon="unlock-alt" />
           </button>
         )}
