@@ -6,3 +6,15 @@
   padding: 10px 15px;
   border-right: 1px solid makerLightGray;
 }
+
+.forms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .editor {
+    padding: 20px 0;
+  }
+}

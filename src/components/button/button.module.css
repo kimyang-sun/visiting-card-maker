@@ -1,0 +1,12 @@
+@value makerBlack from "../../common/colors.css";
+
+.button {
+  font-size: 1.125rem;
+  padding: 5px 10px;
+  background-color: makerBlack;
+  color: #fff;
+}
+
+.button:hover {
+  opacity: 0.8;
+}

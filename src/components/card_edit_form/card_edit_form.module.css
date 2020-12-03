@@ -1,0 +1,32 @@
+.form {
+  flex-basis: 425px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.input {
+  flex: 1 1 50%;
+  height: 43px;
+  padding: 0 8px;
+}
+
+.textarea {
+  flex-basis: 100%;
+  padding: 5px 8px;
+  min-height: 103px;
+}
+
+.editFoot {
+  display: flex;
+  flex-basis: 100%;
+}
+
+.editFoot > * {
+  flex-basis: 33.3333%;
+  height: 43px;
+}
+
+.select {
+  padding-left: 8px;
+}

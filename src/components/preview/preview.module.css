@@ -11,3 +11,9 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+@media screen and (max-width: mediaQuery) {
+  .preview {
+    padding: 40px 0;
+  }
+}

@@ -48,6 +48,20 @@ button {
   appearance: none;
   border: none;
   color: inherit;
+  outline: none;
+}
+
+input,
+textarea {
+  outline: none;
+  appearance: none;
+  border: 1px solid #aaa;
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  background-color: ivory;
 }
 
 * {
