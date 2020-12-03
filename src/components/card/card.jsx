@@ -14,6 +14,7 @@ const Card = ({ card }) => {
     fileURL,
   } = card;
   const url = fileURL || DEFAULT_IMG;
+  console.log(theme);
 
   return (
     <li className={`${styles.card} ${getThemeType(theme)}`}>

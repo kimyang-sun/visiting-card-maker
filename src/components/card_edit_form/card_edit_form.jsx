@@ -54,10 +54,10 @@ const CardEditForm = ({ card }) => {
       ></textarea>
       <div className={styles.editFoot}>
         <select className={styles.select} name="theme" value={theme}>
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-          <option value="sky">Sky</option>
-          <option value="orange">Orange</option>
+          <option value="light">light</option>
+          <option value="dark">dark</option>
+          <option value="sky">sky</option>
+          <option value="orange">orange</option>
         </select>
         <ImageFileInput></ImageFileInput>
         <Button name="Delete" onClick={onSubmit}></Button>
