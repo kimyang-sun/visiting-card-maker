@@ -7,8 +7,8 @@ import Editor from "../editor/editor";
 import Preview from "../preview/preview";
 
 const Maker = ({ authService }) => {
-  const [cards, setCards] = useState([
-    {
+  const [cards, setCards] = useState({
+    1: {
       id: "1",
       name: "kim",
       company: "Undetermined",
@@ -19,7 +19,7 @@ const Maker = ({ authService }) => {
       fileName: "kims",
       fileURL: "thinking.png",
     },
-    {
+    2: {
       id: "2",
       name: "kim",
       company: "Undetermined",
@@ -30,29 +30,7 @@ const Maker = ({ authService }) => {
       fileName: "kims",
       fileURL: "thinking.png",
     },
-    {
-      id: "3",
-      name: "kim",
-      company: "Undetermined",
-      theme: "sky",
-      title: "FrontEnd Engineer",
-      email: "cpo91@naver.com",
-      message: "FrontEnd Study!",
-      fileName: "kims",
-      fileURL: "thinking.png",
-    },
-    {
-      id: "4",
-      name: "kim",
-      company: "Undetermined",
-      theme: "orange",
-      title: "FrontEnd Engineer",
-      email: "cpo91@naver.com",
-      message: "FrontEnd Study!",
-      fileName: "kims",
-      fileURL: "thinking.png",
-    },
-  ]);
+  });
 
   const history = useHistory();
   const onLogout = () => {
@@ -67,16 +45,32 @@ const Maker = ({ authService }) => {
     });
   });
 
-  const addCard = card => {
-    const updated = [...cards, card];
-    setCards(updated);
+  const addOrupdateCard = card => {
+    setCards(cards => {
+      const updated = { ...cards };
+      updated[card.id] = card;
+      return updated;
+    });
+  };
+
+  const deleteCard = card => {
+    setCards(cards => {
+      const updated = { ...cards };
+      delete updated[card.id];
+      return updated;
+    });
   };
 
   return (
     <section className={styles.container}>
       <Header onLogout={onLogout} />
       <div className={styles.maker}>
-        <Editor cards={cards} onAddCard={addCard} />
+        <Editor
+          cards={cards}
+          onAddCard={addOrupdateCard}
+          updateCard={addOrupdateCard}
+          deleteCard={deleteCard}
+        />
         <Preview cards={cards} />
       </div>
       <Footer />
