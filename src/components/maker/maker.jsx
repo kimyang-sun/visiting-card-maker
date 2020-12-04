@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import Editor from "../editor/editor";
 import Preview from "../preview/preview";
 
-const Maker = ({ authService }) => {
+const Maker = ({ authService, FileInput }) => {
   const [cards, setCards] = useState({
     1: {
       id: "1",
@@ -17,7 +17,7 @@ const Maker = ({ authService }) => {
       email: "cpo91@naver.com",
       message: "FrontEnd Study!",
       fileName: "kims",
-      fileURL: "thinking.png",
+      fileURL: null,
     },
     2: {
       id: "2",
@@ -28,7 +28,7 @@ const Maker = ({ authService }) => {
       email: "cpo91@naver.com",
       message: "FrontEnd Study!",
       fileName: "kims",
-      fileURL: "thinking.png",
+      fileURL: null,
     },
   });
 
@@ -70,6 +70,7 @@ const Maker = ({ authService }) => {
           onAddCard={addOrupdateCard}
           updateCard={addOrupdateCard}
           deleteCard={deleteCard}
+          FileInput={FileInput}
         />
         <Preview cards={cards} />
       </div>

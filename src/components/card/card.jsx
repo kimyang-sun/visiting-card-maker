@@ -14,11 +14,10 @@ const Card = ({ card }) => {
     fileURL,
   } = card;
   const url = fileURL || DEFAULT_IMG;
-
   return (
     <li className={`${styles.card} ${getThemeType(theme)}`}>
       <div className={styles.cardHead}>
-        <img src={`/images/${url}`} alt={fileName} className={styles.headImg} />
+        <img src={url} alt={fileName} className={styles.headImg} />
         <div className={styles.headText}>
           <p className={styles.name}>{name}</p>
           <p className={styles.company}>{company}</p>

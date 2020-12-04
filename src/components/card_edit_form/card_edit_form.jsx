@@ -1,9 +1,8 @@
 import React from "react";
 import Button from "../button/button";
-import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./card_edit_form.module.css";
 
-const CardEditForm = ({ card, updateCard, deleteCard }) => {
+const CardEditForm = ({ card, updateCard, deleteCard, FileInput }) => {
   const {
     name,
     company,
@@ -14,6 +13,14 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
     fileName,
     fileURL,
   } = card;
+
+  const onFileChange = file => {
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url,
+    });
+  };
 
   const onChange = event => {
     if (event.currentTarget == null) return;
@@ -76,7 +83,7 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
           <option value="sky">sky</option>
           <option value="orange">orange</option>
         </select>
-        <ImageFileInput></ImageFileInput>
+        <FileInput name={fileName} onFileChange={onFileChange} />
         <Button name="Delete" onClick={() => deleteCard(card)}></Button>
       </div>
     </form>

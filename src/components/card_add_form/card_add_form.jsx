@@ -1,16 +1,23 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Button from "../button/button";
-import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./card_add_form.module.css";
 
-const CardAddForm = ({ onAddCard }) => {
-  const formRef = useRef();
-  const nameRef = useRef();
-  const companyRef = useRef();
-  const titleRef = useRef();
-  const emailRef = useRef();
-  const messageRef = useRef();
-  const themeRef = useRef();
+const CardAddForm = ({ onAddCard, FileInput }) => {
+  const formRef = useRef(null);
+  const nameRef = useRef(null);
+  const companyRef = useRef(null);
+  const titleRef = useRef(null);
+  const emailRef = useRef(null);
+  const messageRef = useRef(null);
+  const themeRef = useRef(null);
+  const [file, setFile] = useState({ fileName: null, fileURL: null });
+
+  const onFileChange = file => {
+    setFile({
+      fileName: file.name,
+      fileURL: file.url,
+    });
+  };
 
   const onSubmit = event => {
     event.preventDefault();
@@ -22,10 +29,11 @@ const CardAddForm = ({ onAddCard }) => {
       email: emailRef.current.value || "",
       message: messageRef.current.value || "",
       theme: themeRef.current.value || "",
-      fileName: "",
-      fileURL: "",
+      fileName: file.fileName || "",
+      fileURL: file.fileURL || "",
     };
     formRef.current.reset();
+    setFile({ fileName: null, fileURL: null });
     onAddCard(card);
   };
 
@@ -71,7 +79,7 @@ const CardAddForm = ({ onAddCard }) => {
           <option>sky</option>
           <option>orange</option>
         </select>
-        <ImageFileInput></ImageFileInput>
+        <FileInput name={file.fileName} onFileChange={onFileChange} />
         <Button name="Add" onClick={onSubmit}></Button>
       </div>
     </form>

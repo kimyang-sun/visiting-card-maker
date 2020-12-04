@@ -10,7 +10,7 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faAddressCard, faUnlockAlt, faUpload);
 
-function App({ authService }) {
+function App({ authService, FileInput }) {
   return (
     <div className={styles.app}>
       <BrowserRouter>
@@ -19,7 +19,7 @@ function App({ authService }) {
             <Login authService={authService} />
           </Route>
           <Route path="/maker">
-            <Maker authService={authService} />
+            <Maker authService={authService} FileInput={FileInput} />
           </Route>
         </Switch>
       </BrowserRouter>

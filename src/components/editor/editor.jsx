@@ -3,7 +3,7 @@ import CardAddForm from "../card_add_form/card_add_form";
 import CardEditForm from "../card_edit_form/card_edit_form";
 import styles from "./editor.module.css";
 
-const Editor = ({ cards, onAddCard, updateCard, deleteCard }) => {
+const Editor = ({ cards, onAddCard, updateCard, deleteCard, FileInput }) => {
   return (
     <div className={styles.editor}>
       <h2>Card Edit</h2>
@@ -14,9 +14,10 @@ const Editor = ({ cards, onAddCard, updateCard, deleteCard }) => {
             card={cards[key]}
             updateCard={updateCard}
             deleteCard={deleteCard}
+            FileInput={FileInput}
           />
         ))}
-        <CardAddForm onAddCard={onAddCard}></CardAddForm>
+        <CardAddForm onAddCard={onAddCard} FileInput={FileInput}></CardAddForm>
       </div>
     </div>
   );
