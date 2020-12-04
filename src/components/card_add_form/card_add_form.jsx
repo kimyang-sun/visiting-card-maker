@@ -73,11 +73,16 @@ const CardAddForm = ({ onAddCard, FileInput }) => {
         name="message"
       ></textarea>
       <div className={styles.editFoot}>
-        <select ref={themeRef} className={styles.select} name="theme">
-          <option selected>light</option>
-          <option>dark</option>
-          <option>sky</option>
-          <option>orange</option>
+        <select
+          ref={themeRef}
+          className={styles.select}
+          name="theme"
+          defaultValue="light"
+        >
+          <option value="light">light</option>
+          <option value="dark">dark</option>
+          <option value="sky">sky</option>
+          <option value="orange">orange</option>
         </select>
         <FileInput name={file.fileName} onFileChange={onFileChange} />
         <Button name="Add" onClick={onSubmit}></Button>
