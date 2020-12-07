@@ -22,13 +22,13 @@ const Maker = ({ authService, FileInput, cardRepository }) => {
       setCards(cards);
     });
     return () => completeSync();
-  }, [userId]);
+  }, [cardRepository, userId]);
 
   useEffect(() => {
     authService.onAuthChange(user => {
       user ? setUserId(user.uid) : history.push("/");
     });
-  });
+  }, [authService, userId, history]);
 
   const addOrUpdateCard = card => {
     setCards(cards => {
