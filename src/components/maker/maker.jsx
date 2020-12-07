@@ -6,31 +6,10 @@ import { useHistory } from "react-router-dom";
 import Editor from "../editor/editor";
 import Preview from "../preview/preview";
 
-const Maker = ({ authService, FileInput }) => {
-  const [cards, setCards] = useState({
-    1: {
-      id: "1",
-      name: "kim",
-      company: "Undetermined",
-      theme: "light",
-      title: "FrontEnd Engineer",
-      email: "cpo91@naver.com",
-      message: "FrontEnd Study!",
-      fileName: "kims",
-      fileURL: null,
-    },
-    2: {
-      id: "2",
-      name: "kim",
-      company: "Undetermined",
-      theme: "dark",
-      title: "FrontEnd Engineer",
-      email: "cpo91@naver.com",
-      message: "FrontEnd Study!",
-      fileName: "kims",
-      fileURL: null,
-    },
-  });
+const Maker = ({ authService, FileInput, cardRepository }) => {
+  const historyState = useHistory().state;
+  const [cards, setCards] = useState({});
+  const [userId, setUserId] = useState(historyState && historyState.id);
 
   const history = useHistory();
   const onLogout = () => {
@@ -38,19 +17,26 @@ const Maker = ({ authService, FileInput }) => {
   };
 
   useEffect(() => {
+    if (!userId) return;
+    const completeSync = cardRepository.syncCards(userId, cards => {
+      setCards(cards);
+    });
+    return () => completeSync();
+  }, [userId]);
+
+  useEffect(() => {
     authService.onAuthChange(user => {
-      if (!user) {
-        history.push("/");
-      }
+      user ? setUserId(user.uid) : history.push("/");
     });
   });
 
-  const addOrupdateCard = card => {
+  const addOrUpdateCard = card => {
     setCards(cards => {
       const updated = { ...cards };
       updated[card.id] = card;
       return updated;
     });
+    cardRepository.saveCard(userId, card);
   };
 
   const deleteCard = card => {
@@ -59,6 +45,7 @@ const Maker = ({ authService, FileInput }) => {
       delete updated[card.id];
       return updated;
     });
+    cardRepository.removeCard(userId, card);
   };
 
   return (
@@ -67,8 +54,8 @@ const Maker = ({ authService, FileInput }) => {
       <div className={styles.maker}>
         <Editor
           cards={cards}
-          onAddCard={addOrupdateCard}
-          updateCard={addOrupdateCard}
+          onAddCard={addOrUpdateCard}
+          updateCard={addOrUpdateCard}
           deleteCard={deleteCard}
           FileInput={FileInput}
         />

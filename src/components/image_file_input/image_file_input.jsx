@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import styles from "./image_file_input.module.css";
 
 const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
-  const icon = (
+  const noImg = (
     <FontAwesomeIcon icon="upload" className={styles.icon}></FontAwesomeIcon>
   );
 
@@ -24,7 +24,7 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
       url: uploaded.url,
     });
   };
-  console.log(loading);
+
   return (
     <div className={styles.container}>
       <input
@@ -40,7 +40,7 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
           className={`${styles.button} ${name && styles.uploaded}`}
           onClick={onButtonClick}
         >
-          {name || "no img"}
+          {name || noImg}
         </button>
       )}
       {loading && <div className={styles.loading}></div>}
