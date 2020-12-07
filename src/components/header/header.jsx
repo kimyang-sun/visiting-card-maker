@@ -1,16 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useMemo } from "react";
 import styles from "./header.module.css";
 
 const Header = ({ onLogout }) => {
+  const addressIcon = useMemo(
+    () => <FontAwesomeIcon icon="address-card" className={styles.card} />,
+    []
+  );
+  const unlockIcon = useMemo(() => <FontAwesomeIcon icon="unlock-alt" />, []);
+
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>
-        <FontAwesomeIcon icon="address-card" className={styles.card} />
+        {addressIcon}
         Visiting Card Maker
         {onLogout && (
           <button onClick={onLogout} className={styles.logout}>
-            <FontAwesomeIcon icon="unlock-alt" />
+            {unlockIcon}
           </button>
         )}
       </h1>
@@ -18,4 +24,4 @@ const Header = ({ onLogout }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

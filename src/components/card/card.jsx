@@ -47,4 +47,4 @@ function getThemeType(theme) {
   }
 }
 
-export default Card;
+export default React.memo(Card);
