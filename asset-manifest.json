@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/visiting-card-maker/static/css/main.6db81bed.chunk.css",
+    "main.js": "/visiting-card-maker/static/js/main.8fd95240.chunk.js",
+    "main.js.map": "/visiting-card-maker/static/js/main.8fd95240.chunk.js.map",
+    "runtime-main.js": "/visiting-card-maker/static/js/runtime-main.fd9e36ab.js",
+    "runtime-main.js.map": "/visiting-card-maker/static/js/runtime-main.fd9e36ab.js.map",
+    "static/js/2.ecfc57a7.chunk.js": "/visiting-card-maker/static/js/2.ecfc57a7.chunk.js",
+    "static/js/2.ecfc57a7.chunk.js.map": "/visiting-card-maker/static/js/2.ecfc57a7.chunk.js.map",
+    "index.html": "/visiting-card-maker/index.html",
+    "static/css/main.6db81bed.chunk.css.map": "/visiting-card-maker/static/css/main.6db81bed.chunk.css.map",
+    "static/js/2.ecfc57a7.chunk.js.LICENSE.txt": "/visiting-card-maker/static/js/2.ecfc57a7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fd9e36ab.js",
+    "static/js/2.ecfc57a7.chunk.js",
+    "static/css/main.6db81bed.chunk.css",
+    "static/js/main.8fd95240.chunk.js"
+  ]
+}
