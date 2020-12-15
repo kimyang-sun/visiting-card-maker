@@ -27,7 +27,7 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
     setLoading(false);
     onFileChange({
       name: uploaded.original_filename,
-      url: uploaded.url,
+      url: uploaded.secure_url,
     });
   };
 
