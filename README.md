@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Visiting Card Maker App (React.js)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://user-images.githubusercontent.com/56675004/102174630-4a4c2500-3ee1-11eb-8b9c-fa006bcae697.png)
 
-## Available Scripts
+![image](https://user-images.githubusercontent.com/56675004/102174573-2852a280-3ee1-11eb-80ab-5906cb8f5661.png)
 
-In the project directory, you can run:
+---
 
-### `yarn start`
+#### 📌
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+- React.js
+- html-to-image
+- downloadjs
+- Firebase (auth, database)
+- Cloudinary (image upload)
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+## 링크
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [https://kimyang-sun.github.io/visiting-card-maker/](https://kimyang-sun.github.io/visiting-card-maker/)
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 설명
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### [로그인 및 로그아웃 기능]
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 로그인을 해야만 Maker 페이지로 갈 수 있습니다.
+- firebase auth API를 이용하여 로그인 기능을 구현하였습니다.
+- 로그아웃은 로그인 후 우측 상단 자물쇠 모양 아이콘을 클릭하면 됩니다.
 
-### `yarn eject`
+```
+- Google
+- Facebook
+- Github
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### [카드 추가]
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 왼쪽 Card Edit에서 카드를 생성할 수 있습니다.
+- form을 모두 작성하고 Add버튼을 누르면 Card Preview에 카드가 생성됩니다.
+- 이미지 업로드 기능을 넣었습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+- 이름, 회사, 제목, 이메일, 내용, 테마, 이미지를 넣을 수 있습니다.
+- 이미지 업로드는 Cloudinary API를 이용하였습니다
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### [카드 편집]
 
-## Learn More
+- 왼쪽 Card Edit에서 카드를 편집할 수 있습니다.
+- form들을 수정하면 Card Preview에 있는 카드들이 실시간으로 수정됩니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+- 이름, 회사, 제목, 이메일, 내용, 테마, 이미지 편집기능
+- 이미지도 다시 업로드하면 새로운 이미지로 변환됩니다.
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### [다운로드 기능]
 
-### Code Splitting
+- Download 버튼을 클릭하면 Card Preview에 있는 카드가 이미지로 변환되어 다운로드됩니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+- html-to-image 라이브러리로 해당하는 카드의 Element를 image로 변환시켜줬습니다
+- downloadjs를 이용하여 변환된 image를 다운로드되도록 만들었습니다.
+- 해당하는 DOM에 직접적으로 접근하지 않고, useRef를 배열화로 응용하였습니다.
+```
 
-### Analyzing the Bundle Size
+### [데이터베이스 연동]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Firebase database API를 이용하여 해당하는 계정의 정보를 받아와서 보여줍니다.
 
-### Making a Progressive Web App
+```
+- 로그인이 되면 userId를 실시간 데이터베이스에서 받아와 setCard를 해줍니다.
+- 데이터베이스에 저장되어있던 정보들이 그대로 카드로 나열됩니다.
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### [기타]
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 페이지 전환은 React-Router를 이용하였습니다.
+- 컴포넌트 스타일링은 css-module을 이용하였습니다.
+- 반응형은 기본적인 부분만 추가하였습니다.

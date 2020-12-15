@@ -1,6 +1,6 @@
 import {
-  facebookProvider,
   firebaseAuth,
+  facebookProvider,
   githubProvider,
   googleProvider,
 } from './firebase';
