@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from 'react';
+import React, { forwardRef } from 'react';
 import styles from './card.module.css';
 
 const Card = forwardRef(({ card }, ref) => {
