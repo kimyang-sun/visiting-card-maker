@@ -20,7 +20,7 @@
 
 ## 링크
 
-- [https://kimyang-sun.github.io/visiting-card-maker/](https://kimyang-sun.github.io/visiting-card-maker/)
+- [https://visiting-card-maker.netlify.app/maker](https://visiting-card-maker.netlify.app/maker)
 
 ---
 
