@@ -19,6 +19,7 @@
 
 .card {
   flex-basis: 425px;
+  max-width: 425px;
   text-align: left;
   padding: 24px;
   border-radius: 10px;
@@ -55,6 +56,8 @@ p {
 
 .cardBody {
   padding: 15px 10px;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 .title {

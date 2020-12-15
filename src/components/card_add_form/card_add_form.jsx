@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
-import Button from "../button/button";
-import styles from "./card_add_form.module.css";
+import React, { useRef, useState } from 'react';
+import Button from '../button/button';
+import styles from './card_add_form.module.css';
 
 const CardAddForm = ({ onAddCard, FileInput }) => {
   const formRef = useRef(null);
@@ -23,14 +23,14 @@ const CardAddForm = ({ onAddCard, FileInput }) => {
     event.preventDefault();
     const card = {
       id: Date.now(),
-      name: nameRef.current.value || "",
-      company: companyRef.current.value || "",
-      title: titleRef.current.value || "",
-      email: emailRef.current.value || "",
-      message: messageRef.current.value || "",
-      theme: themeRef.current.value || "",
-      fileName: file.fileName || "",
-      fileURL: file.fileURL || "",
+      name: nameRef.current.value || '',
+      company: companyRef.current.value || '',
+      title: titleRef.current.value || '',
+      email: emailRef.current.value || '',
+      message: messageRef.current.value || '',
+      theme: themeRef.current.value || '',
+      fileName: file.fileName || '',
+      fileURL: file.fileURL || '',
     };
     formRef.current.reset();
     setFile({ fileName: null, fileURL: null });
@@ -71,6 +71,7 @@ const CardAddForm = ({ onAddCard, FileInput }) => {
         ref={messageRef}
         className={styles.textarea}
         name="message"
+        placeholder="Comment"
       ></textarea>
       <div className={styles.editFoot}>
         <select

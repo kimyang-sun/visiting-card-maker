@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "./card.module.css";
+import React, { forwardRef, useEffect } from 'react';
+import styles from './card.module.css';
 
-const Card = ({ card }) => {
-  const DEFAULT_IMG = "/images/default.png";
+const Card = forwardRef(({ card }, ref) => {
+  const DEFAULT_IMG = '/images/default.png';
   const {
     name,
     company,
@@ -12,10 +12,12 @@ const Card = ({ card }) => {
     message,
     fileName,
     fileURL,
+    id,
   } = card;
   const url = fileURL || DEFAULT_IMG;
+
   return (
-    <li className={`${styles.card} ${getThemeType(theme)}`}>
+    <li ref={ref} id={id} className={`${styles.card} ${getThemeType(theme)}`}>
       <div className={styles.cardHead}>
         <img src={url} alt={fileName} className={styles.headImg} />
         <div className={styles.headText}>
@@ -30,17 +32,17 @@ const Card = ({ card }) => {
       </div>
     </li>
   );
-};
+});
 
 function getThemeType(theme) {
   switch (theme) {
-    case "light":
+    case 'light':
       return styles.light;
-    case "dark":
+    case 'dark':
       return styles.dark;
-    case "sky":
+    case 'sky':
       return styles.sky;
-    case "orange":
+    case 'orange':
       return styles.orange;
     default:
       throw new Error(`not theme ${theme}`);

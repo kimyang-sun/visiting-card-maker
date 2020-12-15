@@ -1,18 +1,21 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useMemo, useRef, useState } from "react";
-import styles from "./image_file_input.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useMemo, useRef, useState } from 'react';
+import styles from './image_file_input.module.css';
 
 const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
   const noImg = useMemo(
     () => (
-      <FontAwesomeIcon icon="upload" className={styles.icon}></FontAwesomeIcon>
+      <span>
+        No Image
+        <FontAwesomeIcon icon="upload" className={styles.icon} />
+      </span>
     ),
     []
   );
 
   const [loading, setLoading] = useState(false);
 
-  const inputRef = useRef("null");
+  const inputRef = useRef('null');
   const onButtonClick = event => {
     event.preventDefault();
     inputRef.current.click();

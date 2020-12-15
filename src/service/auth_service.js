@@ -3,7 +3,7 @@ import {
   firebaseAuth,
   githubProvider,
   googleProvider,
-} from "./firebase";
+} from './firebase';
 
 class AuthService {
   login(providerName) {
@@ -16,16 +16,19 @@ class AuthService {
   }
 
   onAuthChange(onUserChanged) {
-    firebaseAuth.onAuthStateChanged(user => onUserChanged(user));
+    const unsubscribe = firebaseAuth.onAuthStateChanged(user =>
+      onUserChanged(user)
+    );
+    return () => unsubscribe(); // 이것도 card repository와 마찬가지로 unmount될때 onAuthStateChanged를 중지시켜줘야한다.
   }
 
   getProvider(providerName) {
     switch (providerName) {
-      case "Google":
+      case 'Google':
         return googleProvider;
-      case "Facebook":
+      case 'Facebook':
         return facebookProvider;
-      case "Github":
+      case 'Github':
         return githubProvider;
       default:
         throw new Error(`not supported provider ${providerName}`);

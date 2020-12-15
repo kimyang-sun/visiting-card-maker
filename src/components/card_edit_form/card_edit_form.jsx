@@ -1,8 +1,15 @@
-import React from "react";
-import Button from "../button/button";
-import styles from "./card_edit_form.module.css";
+import React from 'react';
+import Button from '../button/button';
+import styles from './card_edit_form.module.css';
 
-const CardEditForm = ({ card, updateCard, deleteCard, FileInput }) => {
+const CardEditForm = ({
+  card,
+  updateCard,
+  deleteCard,
+  FileInput,
+  Download,
+  downloadCard,
+}) => {
   const { name, company, theme, title, email, message, fileName } = card;
 
   const onFileChange = file => {
@@ -24,6 +31,7 @@ const CardEditForm = ({ card, updateCard, deleteCard, FileInput }) => {
 
   return (
     <form className={styles.form}>
+      <Download card={card} downloadCard={downloadCard} />
       <input
         className={styles.input}
         type="text"
@@ -61,6 +69,7 @@ const CardEditForm = ({ card, updateCard, deleteCard, FileInput }) => {
         name="message"
         value={message}
         onChange={onChange}
+        placeholder="Comment"
       ></textarea>
       <div className={styles.editFoot}>
         <select

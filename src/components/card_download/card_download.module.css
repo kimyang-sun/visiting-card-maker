@@ -1,0 +1,18 @@
+.button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-100%);
+  background-color: darkmagenta;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px 5px 0 0;
+}
+
+.button:hover {
+  background-color: rgb(165, 55, 165);
+}
+
+.icon {
+  margin-left: 8px;
+}
