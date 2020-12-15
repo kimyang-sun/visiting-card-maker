@@ -20,7 +20,7 @@
 
 ## 링크
 
-- [https://visiting-card-maker.netlify.app/maker](https://visiting-card-maker.netlify.app/maker)
+- [https://visiting-card-maker.netlify.app](https://visiting-card-maker.netlify.app)
 
 ---
 
